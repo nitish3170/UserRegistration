@@ -56,5 +56,6 @@ public class UserRegistration {
             System.out.println("VALID");
         else
             System.out.println("INVALID");
+
     }
 }
