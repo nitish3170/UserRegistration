@@ -52,7 +52,7 @@ public class UserRegistration {
         System.out.println("Enter password minimum 8 characters 1 uppercase and 1 number");
 //        sc.nextLine();
         String password=sc.nextLine();
-        String passwordRegex="^(?=.*[A-Z])(?=.*\\d).{8,}$";
+        String passwordRegex = "^(?=.*[A-Z])(?=.*\\d)(?=^[^!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/`~]*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/`~][^!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/`~]*$).{8,}$";
         Pattern compiledPassword=Pattern.compile(passwordRegex);
         Matcher matchPassword=compiledPassword.matcher(password);
         if(matchPassword.matches())
