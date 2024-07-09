@@ -13,13 +13,28 @@ public class UserRegistration {
         String pattern = "^[A-Z][a-zA-Z]{2,}$";
         Pattern compiledPattern = Pattern.compile(pattern);
         Matcher matcher = compiledPattern.matcher(fName);
-        System.out.println(matcher.matches());
+        if(matcher.matches())
+            System.out.println("VALID");
+        else
+            System.out.println("INVALID");
 
         System.out.println("Enter last name");
         String lName=sc.next();
         Matcher matcher2 = compiledPattern.matcher(lName);
-        System.out.println(matcher2.matches());
+        if(matcher2.matches())
+            System.out.println("VALID");
+        else
+            System.out.println("INVALID");
 
+        System.out.println("Enter email-id ");
+        String email=sc.next();
+        String pattern2 = "^[a-zA-Z0-9.%+-]+\\.[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}(\\.[a-zA-Z]{2,6})?$";
+        Pattern compiledPattern2 = Pattern.compile(pattern2);
+        Matcher matcher3 = compiledPattern2.matcher(email);
+        if(matcher3.matches())
+            System.out.println("VALID");
+        else
+            System.out.println("INVALID");
 
     }
 }
