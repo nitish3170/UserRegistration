@@ -1,5 +1,6 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -43,6 +44,15 @@ public class UserRegistration {
         Pattern CompiledMobile = Pattern.compile(mobileRegex);
         Matcher matcherPhone =CompiledMobile.matcher(phoneNumber);
         if(matcherPhone.matches())
+            System.out.println("VALID");
+        else
+            System.out.println("INVALID");
+        System.out.println("Enter password minimum 8 characters");
+//        sc.nextLine();
+        String password=sc.nextLine();
+        Pattern compiledPassword=Pattern.compile(password);
+        Matcher matchPassword=compiledPassword.matcher(password);
+        if(matchPassword.matches())
             System.out.println("VALID");
         else
             System.out.println("INVALID");
