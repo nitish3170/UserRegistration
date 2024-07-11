@@ -1,6 +1,9 @@
 import org.example.UserRegistration;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+//import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class UserRegistrationTest {
     @Test
@@ -30,6 +33,18 @@ public class UserRegistrationTest {
         String result=UserRegistration.passwordValidate("asA!1asa");
         Assert.assertEquals("HAPPY",result);
     }
-
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "test.sds@example.co.ij",
+            "user.name+tag+sorting@example.com",
+            "user.name@example.co.uk",
+//            "invalid-email@",
+//            "@example.com",
+//            "user@.com.my"
+            })
+    void validEmail (String mail){
+        String result= UserRegistration.emailValidate(mail);
+        Assert.assertEquals("HAPPY",result);
+    }
 
 }
