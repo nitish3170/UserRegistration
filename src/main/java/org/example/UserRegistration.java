@@ -27,15 +27,19 @@ public class UserRegistration {
         else
             System.out.println("INVALID");
 
-        System.out.println("Enter email-id ");
-        String email=sc.next();
-        String pattern2 = "^[a-zA-Z0-9.%+-]+\\.[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}(\\.[a-zA-Z]{2,6})?$";
-        Pattern compiledPattern2 = Pattern.compile(pattern2);
-        Matcher matcher3 = compiledPattern2.matcher(email);
-        if(matcher3.matches())
-            System.out.println("VALID");
-        else
-            System.out.println("INVALID");
+        System.out.println("Enter the number of emails : ");
+        int n=sc.nextInt();
+        for (int i=0;i<n;i++) {
+            System.out.println("Enter email-id ");
+            String email = sc.next();
+            String pattern2 = "^[a-zA-Z0-9.%+-]+\\.[a-zA-Z0-9.%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}(\\.[a-zA-Z]{2,6})?$";
+            Pattern compiledPattern2 = Pattern.compile(pattern2);
+            Matcher matcher3 = compiledPattern2.matcher(email);
+            if (matcher3.matches())
+                System.out.println("VALID");
+            else
+                System.out.println("INVALID");
+        }
 
         System.out.println("Enter mobile number with country code, space followed by 10 digit number");
         sc.nextLine();
@@ -49,7 +53,7 @@ public class UserRegistration {
             System.out.println("INVALID");
 
 
-        System.out.println("Enter password minimum 8 characters 1 uppercase and 1 number");
+        System.out.println("Enter password minimum 8 characters, at least 1 uppercase and 1 number and exactly 1 special character");
 //        sc.nextLine();
         String password=sc.nextLine();
         String passwordRegex = "^(?=.*[A-Z])(?=.*\\d)(?=^[^!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/`~]*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/`~][^!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/`~]*$).{8,}$";
