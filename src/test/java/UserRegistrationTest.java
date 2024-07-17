@@ -8,13 +8,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class UserRegistrationTest {
     @Test
-    public void fNameTest(){
+    public void fNameTest() {
         try {
             Assert.assertEquals(true, UserRegistration.fNameValidate("Harshal"));
-        } catch ( CustomException e) {
+        } catch (CustomException e) {
             Assert.fail("Exception should not have been thrown");
         }
     }
+
     @Test
     public void invalidFirstNameTest() {
         try {
@@ -27,13 +28,14 @@ public class UserRegistrationTest {
 
 
     @Test
-    public void lnameTest(){
+    public void lnameTest() {
         try {
             Assert.assertEquals(true, UserRegistration.lNameValidate("Gotarne"));
         } catch (CustomException e) {
             Assert.fail("Exception should not have been thrown");
         }
     }
+
     @Test
     public void invalidLastNameTest() {
         try {
@@ -45,7 +47,7 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void emailTest(){
+    public void emailTest() {
         try {
             Assert.assertEquals(true, UserRegistration.emailValidate("asa.sds@sds.sds.ds"));
         } catch (CustomException e) {
@@ -54,48 +56,52 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void phoneNumberTest(){
+    public void phoneNumberTest() {
         try {
-            Assert.assertEquals( true, UserRegistration.phoneNumberValidate("91 9876987698"));
+            Assert.assertEquals(true, UserRegistration.phoneNumberValidate("91 9876987698"));
         } catch (CustomException e) {
             Assert.fail("Exception should not have been thrown");
         }
     }
+
     @Test
-    public void invalidPhoneNumberTest(){
+    public void invalidPhoneNumberTest() {
         Assert.assertThrows(CustomException.class,
                 () -> {
                     UserRegistration.phoneNumberValidate("91 987697698");
                 });
     }
+
     @Test
-    public void passwordTest(){
+    public void passwordTest() {
         try {
             Assert.assertEquals(true, UserRegistration.passwordValidate("asA!1asa"));
         } catch (CustomException e) {
             Assert.fail("Exception should not have been thrown");
         }
     }
+
     @ParameterizedTest
     @ValueSource(strings = {
             "test.sds@example.co.ij",
             "user.name+tag+sorting@example.com",
             "user.name@example.co.uk"
-            })
-    void validEmail (String mail){
+    })
+    void validEmail(String mail) {
         try {
             Assert.assertEquals(true, UserRegistration.emailValidate(mail));
         } catch (CustomException e) {
             Assert.fail("Exception should not have been thrown");
         }
     }
+
     @ParameterizedTest
     @ValueSource(strings = {
             "invalid-email@",
             "@example.com",
             "user@.com.my"
     })
-    void invalidEmail (String mail){
+    void invalidEmail(String mail) {
         try {
             UserRegistration.emailValidate(mail); // Invalid email
             Assert.fail("Expected CustomException not thrown");
